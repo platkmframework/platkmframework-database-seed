@@ -5,13 +5,17 @@
   "schema":"",
   "catalog": "",
   "password": "IobFn1FAVTEbFBaumTgpgw",
-  "node": {
-    "table": "persona",
-    "count":"100",
-    "children": [{
-      "table": "vehiculo",
-      "count":"200",
-      "children": []
-    }]
-  }
+  "tableTree":[
+    {
+      "table": "persona",
+      "count": "100",
+      "children": [
+        {
+          "table": "vehiculo",
+          "count": "200",
+          "children": []
+        }
+      ]
+    }
+  ]
 }

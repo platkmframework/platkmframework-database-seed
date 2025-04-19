@@ -1,5 +1,26 @@
+/**
+ * ****************************************************************************
+ *  Copyright(c) 2025 the original author Eduardo Iglesias Taylor.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *  	 https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ *  Contributors:
+ *  	Eduardo Iglesias Taylor - initial API and implementation
+ * *****************************************************************************
+ */
 package org.platkmframework.databasereader.seed;
 
+import org.apache.commons.lang3.StringUtils;
 import org.platkmframework.databasereader.model.Column;
 import org.platkmframework.databasereader.model.Table;
 import org.platkmframework.databasereader.seed.config.TableTreeNode;
@@ -7,9 +28,13 @@ import org.platkmframework.databasereader.seed.config.TableTreeNode;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+/**
+ *   Author:
+ *     Eduardo Iglesias
+ *   Contributors:
+ *   	Eduardo Iglesias - initial API and implementation
+ */
 public class DataSeeder {
 
     private final Random random = new Random();
@@ -23,7 +48,7 @@ public class DataSeeder {
     }
 
     private void insertRandomData(Connection con, List<Table> tables, TableTreeNode node) throws SQLException {
-        String fullTableName = node.getSchema() + "." + node.getTable();
+        String fullTableName = StringUtils.isNotBlank(node.getSchema())?node.getSchema() + ".":node.getTable();
         int count = node.getCount();
 
         Table table = tables.stream().filter(t->t.getName().equals(node.getTable())).findFirst().orElse(null);
