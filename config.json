@@ -1,0 +1,17 @@
+{
+  "url": "jdbc:postgresql://localhost:5432/seed_db",
+  "driver": "org.postgresql.Driver",
+  "user": "postgres",
+  "schema":"",
+  "catalog": "",
+  "password": "IobFn1FAVTEbFBaumTgpgw",
+  "node": {
+    "table": "persona",
+    "count":"100",
+    "children": [{
+      "table": "vehiculo",
+      "count":"200",
+      "children": []
+    }]
+  }
+}
